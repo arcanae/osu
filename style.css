@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("click.png");
+    background-size: 100%
+}
+
+#image {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+}
+
+#circle {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: rosybrown;
+    position: absolute;
+    font-size: 2em;
+    top: 20%;
+    left: 20%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.75;
+}
+
+#score {
+    margin: 0;
+    left: 0;
+    position: absolute;
+}
+
+#combo #combo,
+#score {
+    color: white;
+    font-size: 3em;
+}
