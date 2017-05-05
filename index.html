@@ -12,7 +12,7 @@
 <body>
 
     <h2 id="score">000</h2>
-    <img id="image" src="../stripe.jpg" alt="img">
+    <img id="image" src="cursor.png" alt="img">
     <h1 id="circle">0</h1>
 
     <audio src="circles.mp3" autoplay loop></audio>
@@ -28,8 +28,8 @@
             Pos.x = event.pageX;
             console.log(Pos);
 
-            img.style.top = (Pos.y - 20).toString() + "px";
-            img.style.left = (Pos.x - 20).toString() + "px";
+            img.style.top = (Pos.y - 40).toString() + "px";
+            img.style.left = (Pos.x - 40).toString() + "px";
 
         });
 
