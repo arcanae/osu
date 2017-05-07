@@ -4,6 +4,7 @@
  let pts = document.querySelector("#score");
  let combo = 0;
  let timer = 1000;
+ let timer2 = 2000;
  document.body.addEventListener("mousemove", function(event) {
      let img = document.querySelector("#image");
      Pos.y = event.pageY;
@@ -44,6 +45,7 @@
      circle.style.top = Math.random() * 82 + "vh";
      circle.style.left = Math.random() * 82 + "vw";
      timer = 1000;
+     timer2 = 2000;
  }
 
 
@@ -53,10 +55,11 @@
      timeout = setTimeout(miss, timer);
  }
 
- setInterval(timeUp, 1000);
+ setInterval(timeUp, timer2);
 
  circle.addEventListener("click", function() {
      timer = 700;
+     timer2 = 1000;
      circle.style.backgroundColor = "#" + Pos.x + Pos.y;
      circle.style.top = Math.random() * 82 + "vh";
      circle.style.left = Math.random() * 82 + "vw";
