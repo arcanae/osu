@@ -79,20 +79,18 @@
          circle.style.textShadow = "1px 1px white";
          circle.style.borderColor = "white white white #d60816";
      }
-
      if (combo >= 100) {
-         timer = 575;
+         timer = 590;
          circle.style.color = "#1981a0";
          circle.style.textShadow = "1px 1px white";
          circle.style.borderColor = "white #1981a0";
      }
      if (combo >= 200) {
-         timer = 475;
+         timer = 500;
          circle.style.color = "#1bc646";
          circle.style.textShadow = "1px 1px white";
          circle.style.borderColor = "#1bc646 #1bc646 white #1bc646";
      }
-
      if (combo >= 500) {
          timer = 350;
          circle.style.color = "#c40f88";
