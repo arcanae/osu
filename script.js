@@ -1,72 +1,44 @@
- let point = 0;
  let circle = document.querySelector("#circle");
- let Pos = {};
- let pts = document.querySelector("#score");
  let combo = 0;
+ let pos = {};
+ let pts = document.querySelector("#score");
+ let overCircle = false;
+ let point = 0;
  let timer = 1000;
  let timer2 = 2000;
+ let timeout;
  document.body.addEventListener("mousemove", function(event) {
      let img = document.querySelector("#image");
-     Pos.y = event.pageY;
-     Pos.x = event.pageX;
-     console.log(Pos);
+     pos.y = event.pageY;
+     pos.x = event.pageX;
+     console.log(pos);
 
-     img.style.top = (Pos.y - 40).toString() + "px";
-     img.style.left = (Pos.x - 40).toString() + "px";
+     img.style.top = (pos.y - 40).toString() + "px";
+     img.style.left = (pos.x - 40).toString() + "px";
 
  });
-
- //  addEventListener("keypress", function(event) {
- //      if (event.key === 'z') {
- //          timer = 700;
- //          timer2 = 1000;
- //          circle.style.backgroundColor = "#" + Pos.x + Pos.y;
- //          circle.style.top = Math.random() * 82 + "vh";
- //          circle.style.left = Math.random() * 82 + "vw";
- //          point += Math.round(300 + (300 * (combo * (combo * 0.005))));
- //          pts.textContent = point.toString();
- //          combo++;
- //          circle.textContent = combo.toString();
- //          clearTimeout(timeout);
- //      }
- //      if (event.key === 'e') {
- //          timer = 700;
- //          timer2 = 1000;
- //          circle.style.backgroundColor = "#" + Pos.x + Pos.y;
- //          circle.style.top = Math.random() * 82 + "vh";
- //          circle.style.left = Math.random() * 82 + "vw";
- //          point += Math.round(300 + (300 * (combo * (combo * 0.005))));
- //          pts.textContent = point.toString();
- //          combo++;
- //          circle.textContent = combo.toString();
- //          clearTimeout(timeout);
- //      }
- //  });
 
  function miss() {
      combo = 0;
      circle.textContent = combo.toString();
-     circle.style.color = "white";
-     circle.style.textShadow = "none";
      circle.style.borderColor = "white";
+     circle.style.color = "white";
+     circle.style.backgroundColor = "#" + pos.x + pos.y;
+     circle.style.textShadow = "none";
      circle.style.top = Math.random() * 82 + "vh";
      circle.style.left = Math.random() * 82 + "vw";
      timer = 1000;
      timer2 = 2000;
  }
 
- let timeout;
-
  function timeUp() {
      timeout = setTimeout(miss, timer);
  }
 
- setInterval(timeUp, timer2);
-
- circle.addEventListener("click", function() {
+ function hit() {
      timer = 700;
      timer2 = 1000;
-     circle.style.backgroundColor = "#" + Pos.x + Pos.y;
+     circle.style.backgroundColor = "#" + pos.x + pos.y;
      circle.style.top = Math.random() * 82 + "vh";
      circle.style.left = Math.random() * 82 + "vw";
      point += Math.round(300 + (300 * (combo * (combo * 0.005))));
@@ -99,4 +71,31 @@
          circle.style.backgroundColor = "white";
      }
      clearTimeout(timeout);
+ }
+
+ setInterval(timeUp, timer2);
+
+ circle.addEventListener("mouseover", function() {
+     overCircle = true;
+ });
+
+ circle.addEventListener("mouseout", function() {
+     overCircle = false;
+ });
+
+ addEventListener("keypress", function(event) {
+     if (event.key === 'z' && overCircle == true) {
+         hit();
+     }
+     if (event.key === 'e' && overCircle == true) {
+         hit()
+     }
+     overCircle = false;
+ });
+
+
+
+ circle.addEventListener("click", function() {
+     hit()
+     overCircle = false;
  })
