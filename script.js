@@ -79,23 +79,28 @@
      overCircle = true;
  });
 
+ circle.addEventListener("mousemove", function() {
+     overCircle = true;
+ });
+
  circle.addEventListener("mouseout", function() {
      overCircle = false;
  });
 
- addEventListener("keypress", function(event) {
+ document.addEventListener("keypress", function(event) {
      if (event.key === 'z' && overCircle == true) {
          hit();
      }
      if (event.key === 'e' && overCircle == true) {
-         hit()
+         hit();
+     }
+     if (event.key === '*') {
+         hit();
      }
      overCircle = false;
  });
 
-
-
  circle.addEventListener("click", function() {
-     hit()
+     hit();
      overCircle = false;
  })
