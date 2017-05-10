@@ -51,8 +51,27 @@ body {
 
 #score {
     margin: 0;
-    left: 0;
+    top: 0.1%;
+    left: 0.2vw;
     position: absolute;
+}
+
+#comboscore {
+    color: white;
+    margin: 0;
+    position: absolute;
+    left: 0.4%;
+    top: 45px;
+    font-size: 2em;
+}
+
+#maxcombo {
+    color: white;
+    margin: 0;
+    position: absolute;
+    left: 0.4vw;
+    top: 95%;
+    font-size: 5vh;
 }
 
 #combo,

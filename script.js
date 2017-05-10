@@ -1,12 +1,17 @@
  let circle = document.querySelector("#circle");
  let combo = 0;
+ let comboscore = document.querySelector("#comboscore");
+ let combopts = 0;
+ let maxcombo = document.querySelector("#maxcombo");
+ let maxcomboval = 0;
+ let overCircle = false;
  let pos = {};
  let pts = document.querySelector("#score");
- let overCircle = false;
  let point = 0;
  let timer = 1000;
  let timer2 = 2000;
  let timeout;
+ let x = 0;
  document.body.addEventListener("mousemove", function(event) {
      let img = document.querySelector("#image");
      pos.y = event.pageY;
@@ -20,6 +25,7 @@
 
  function miss() {
      combo = 0;
+     x = 0;
      circle.textContent = combo.toString();
      circle.style.borderColor = "white";
      circle.style.color = "white";
@@ -43,8 +49,19 @@
      circle.style.left = Math.random() * 82 + "vw";
      point += Math.round(300 + (300 * (combo * (combo * 0.005))));
      pts.textContent = point.toString();
+     x++;
+     if (x === 1) {
+         combopts = 0;
+     }
+     combopts += Math.round(300 + (300 * (combo * (combo * 0.005))));
+     comboscore.textContent = combopts.toString();
      combo++;
      circle.textContent = combo.toString();
+     if (combo > maxcomboval) {
+         maxcomboval = combo
+         maxcombo.textContent = combo.toString();
+     }
+
      if (combo >= 50) {
          timer = 650;
          circle.style.color = "#d60816";
