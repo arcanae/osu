@@ -1,0 +1,1 @@
+This is a JavaScript's rythm game that I made during my free time with the inspiration of osu!.
