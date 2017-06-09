@@ -1,0 +1,2 @@
+Voici un jeu de rythme en JavaScript que j'ai fait durant mon temps libre.
+Il est inspiré du jeu osu!.
