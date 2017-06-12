@@ -12,16 +12,42 @@
  let timer2 = 2000;
  let timeout;
  let x = 0;
- document.body.addEventListener("mousemove", function(event) {
+
+ let isMobile = {
+     Android: function() {
+         return navigator.userAgent.match(/Android/i);
+     },
+     BlackBerry: function() {
+         return navigator.userAgent.match(/BlackBerry/i);
+     },
+     iOS: function() {
+         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+     },
+     Opera: function() {
+         return navigator.userAgent.match(/Opera Mini/i);
+     },
+     Windows: function() {
+         return navigator.userAgent.match(/IEMobile/i);
+     },
+     any: function() {
+         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+     }
+ };
+
+ if (isMobile.any()) {
      let img = document.querySelector("#image");
-     pos.y = event.pageY;
-     pos.x = event.pageX;
-     console.log(pos);
+     img.style.display = "none";
+ } else {
+     document.body.addEventListener("mousemove", function(event) {
+         let img = document.querySelector("#image");
+         pos.y = event.pageY;
+         pos.x = event.pageX;
+         console.log(pos);
 
-     img.style.top = (pos.y - 40).toString() + "px";
-     img.style.left = (pos.x - 40).toString() + "px";
-
- });
+         img.style.top = (pos.y - 40).toString() + "px";
+         img.style.left = (pos.x - 40).toString() + "px";
+     });
+ }
 
  function miss() {
      combo = 0;
