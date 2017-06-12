@@ -57,8 +57,13 @@
      circle.style.color = "white";
      circle.style.backgroundColor = "#" + pos.x + pos.y;
      circle.style.textShadow = "none";
-     circle.style.top = Math.random() * 82 + "vh";
-     circle.style.left = Math.random() * 82 + "vw";
+     if (isMobile.any()) {
+         circle.style.top = Math.random() * 70 + "vh";
+         circle.style.left = Math.random() * 70 + "vw";
+     } else {
+         circle.style.top = Math.random() * 82 + "vh";
+         circle.style.left = Math.random() * 82 + "vw";
+     }
      timer = 1000;
      timer2 = 2000;
  }
@@ -71,8 +76,13 @@
      timer = 700;
      timer2 = 1000;
      circle.style.backgroundColor = "#" + pos.x + pos.y;
-     circle.style.top = Math.random() * 82 + "vh";
-     circle.style.left = Math.random() * 82 + "vw";
+     if (isMobile.any()) {
+         circle.style.top = Math.random() * 70 + "vh";
+         circle.style.left = Math.random() * 70 + "vw";
+     } else {
+         circle.style.top = Math.random() * 82 + "vh";
+         circle.style.left = Math.random() * 82 + "vw";
+     }
      point += Math.round(300 + (300 * (combo * (combo * 0.005))));
      pts.textContent = point.toString();
      x++;
